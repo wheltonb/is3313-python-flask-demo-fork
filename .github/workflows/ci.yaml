@@ -32,3 +32,27 @@ jobs:
 
       - name: Run tests
         run: pytest
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+
+      - name: Deploy to Heroku
+        env:
+          HEROKU_API_KEY: HRKU-d30278d8-cb81-4a95-ad81-2e6eddee0a98
+        run: |
+          heroku git:remote -a is3313-python-flask-demo
+          git push heroku main
