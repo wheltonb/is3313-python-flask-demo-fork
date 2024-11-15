@@ -66,5 +66,4 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
-          git filter-repo -- --all
           git push https://heroku:$HEROKU_API_KEY@git.heroku.com/is3313-python-flask-demo.git main
