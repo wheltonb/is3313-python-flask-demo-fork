@@ -53,6 +53,8 @@ jobs:
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
 
       - name: Login to Heroku
+        with:
+          heroku_email: "s.woodworth@ucc.ie"
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
