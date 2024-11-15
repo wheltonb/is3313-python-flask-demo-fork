@@ -12,4 +12,4 @@ def hello_world():  # put application's code here
     return f'Hello World! The answer is: {powerString}'
 
 if __name__ == '__main__':
-    app.run()
+  app.run(host='0.0.0.0', port=80)
